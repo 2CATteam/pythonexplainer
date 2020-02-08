@@ -1,1 +1,49 @@
-<p>Hello, World!</p>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="./styles.css">
+	<title>PETER: Make Python Make Sense</title>
+	<meta charset="UTF-8">
+	<meta name="description" content="Tool for understanding your Python code">
+	<meta name="keywords" content="Python,code,developers,tool,debugger,debug,trace,list,free,service">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script type="text/javascript" src="./webscripts.js"></script>
+</head>
+<body>
+	<div id="main">
+		<div id="titleDiv">
+			<h1>P.E.T.E.R.</h1>
+			<h4>Python Explanation Terminal Environment Resource</h4>
+		</div>
+		<div id="codeDiv">
+			<div id="inCodeDiv">
+				<p class="textLabel">Editor</p>
+				<textarea id="inCodeTextArea"></textarea>
+			</div>
+			<div id="outCodeDiv">
+				<p class="textLabel">Code Output</p>
+				<div id="outCodeTextArea">
+				</div>
+			</div>
+			<div id="infoDiv">
+				<p class="textLabel">Information</p>
+				<div id="infoTextArea">
+				</div>
+			</div>
+		</div>
+		<div id="ioDiv">
+			<div id="stdinDiv">
+				<p class="textLabel">Input</p>
+				<textarea id="stdinArea"></textarea>
+			</div>
+			<div id="stdoutDiv">
+				<p class="textLabel">Output</p>
+				<textarea id="stdoutArea"></textarea>
+			</div>
+			<div id="selectionDiv">
+				<p class="textLabel">Options</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
