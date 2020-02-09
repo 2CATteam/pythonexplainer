@@ -1,3 +1,5 @@
+import Levenshtein
+
 def Lowes(code):
     KeywordsPython = ["False", "class", "finally", "is", "return", "None", "continue", "for", "lambda", "try", "True", "def", "from", "nonlocal", "while", "and", "del", "global", "not", "with", "as", "elif", "if", "or", "yield", "assert", "else", "import", "pass", "break", "except", "in", "raise"]
     KeywordsJava = ["abstract", "continue", "for", "new", "switch", "assert", "default", "goto", "package", "synchronized", "boolean", "do", "if", "private", "this", "break", "double", "implements", "protected", "throw", "byte", "else", "import", "public", "throws", "case", "enum", "instanceof", "return", "transient", "catch", "extends", "int", "short", "try", "char", "final", "interface", "static", "void", "class", "finally", "long", "strictfp", "volatile", "const", "float", "native", "super", "while"]
@@ -18,8 +20,32 @@ def Lowes(code):
         #if (a[i] % j != 0):
             #b.append(a[i])'''
 
+    code.replace("=", " = ")
+
     for i in code.splitlines():
         for x in i.split():
             if code[x] in NotInPython:
-                print("The word " + code[x] + " on line " + (i+1) + " isn't a keyword in Python. Maybe try something else.")
+                str += ("\nThe word " + code[x] + " on line " + (i+1) + " isn't a keyword in Python. Maybe try something else.")
+
+    Variables = {}
+
+    for i in code.split():
+        if code[i] == "=":
+            try:
+                Variables[code[i-1]] += 1
+            except KeyError:
+                Variables[code[i-1]] = 1
+
+    for i in Variables.keys():
+        if Variables[i] == 1:
+            for j in Variables.values():
+                if Levenshtein.distance(i,j) == 1:
+                    str += ("\n" + i + " is incredibly similar to another variable in your code and you've only set it once. Perhaps it's a typo?")
+
+    return str
+
+
+
+
+
 
