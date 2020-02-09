@@ -13,8 +13,6 @@ def Lowes(code):
 
     FinalDict = {}
 
-    #print(NotInPython)
-
     #code = '''a = [x for x in range(8)]
 #b = []
 #for i in range(len(a)):
@@ -23,11 +21,18 @@ def Lowes(code):
             #b.append(a[i])'''
 
     code.replace("=", " = ")
+    code.replace("(", " ( ")
+    code.replace(")", " ) ")
 
-    for i in code.splitlines():
-        for x in range(len(i.split())):
-            if i[x] in NotInPython:
-                errorStr = ("\nThe word " + code[x] + " on line " + (i+1) + " isn't a keyword in Python. Maybe try something else.")
+    lines = code.splitlines()
+
+    for i in range(len(code.splitlines())):
+        split = lines[i].split()
+        for x in range(len(split)):
+            if split[x] in NotInPython:
+                errorStr = ("The word " + \
+                            split[x] + " on line " + \
+                            str(i) + " isn't a keyword in Python. Maybe try something else.")
                 FinalDict[i] = errorStr
 
     Variables = {}
@@ -54,9 +59,3 @@ def Lowes(code):
 
 
     return FinalDict
-
-
-
-
-
-
