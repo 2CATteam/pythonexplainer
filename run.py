@@ -1,6 +1,6 @@
 import subprocess
 
-def trace(code, input):
+def testRun(code, input):
     f = open('output.py', 'w')
     traceList = code.split('\n')
     for i in range(len(traceList)):
@@ -27,4 +27,4 @@ c = a + b
 print(c)
 print(input())'''
 
-trace(test, 'hi')
+testRun(test, 'hi')
