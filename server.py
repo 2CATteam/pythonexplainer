@@ -33,7 +33,7 @@ def run():
         return json.dumps(toReturn)
 
 @app.route('/debug/', methods=['POST'])
-def trace():
+def debug():
     code = request.args.get("code")
     if (code):
         toReturn = Lowes.Lowes(code)
