@@ -18,7 +18,7 @@
 		<div id="codeDiv">
 			<div id="inCodeDiv">
 				<p class="textLabel">Editor</p>
-				<textarea id="inCodeTextArea"></textarea>
+				<textarea id="inCodeTextArea" autofocus placeholder="Python Code"></textarea>
 			</div>
 			<div id="outCodeDiv">
 				<p class="textLabel">Code Output</p>
@@ -34,14 +34,21 @@
 		<div id="ioDiv">
 			<div id="stdinDiv">
 				<p class="textLabel">Input</p>
-				<textarea id="stdinArea"></textarea>
+				<textarea id="stdinArea" placeholder="Input to the code"></textarea>
 			</div>
 			<div id="stdoutDiv">
 				<p class="textLabel">Output</p>
-				<textarea id="stdoutArea"></textarea>
+				<textarea id="stdoutArea" placeholder="Output from the code"></textarea>
 			</div>
 			<div id="selectionDiv">
 				<p class="textLabel">Options</p>
+				<div id="Buttons">
+					<button>Explain it to me</button>
+					<button>Find Common Errors</button>
+					<button>Just run my code</button>
+					<button>Trace a variable (Select below)</button>
+					<textarea rows=1 id="variable" placeholder="Variable name to trace"></textarea>
+				</div>
 			</div>
 		</div>
 	</div>
