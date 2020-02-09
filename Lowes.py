@@ -9,7 +9,20 @@ def Lowes():
     InC = [KeywordsC[i] for i in range(len(KeywordsC)) if KeywordsC[i] not in KeywordsPython]
     NotInPython = list(set(InJava) | set(InJS) | set(InC))
 
-    print(NotInPython)
+    #print(NotInPython)
 
+    code = '''a = [x for x in range(8)]
+b = []
+for i in range(len(a)):
+    for j in a[~i]:
+        if (a[i] % j != 0):
+            b.append(a[i])'''
+
+    for i in code.splitlines():
+        for x in i.split():
+            if code[x] in NotInPython:
+                print("The word " + code[x] + " on line " + (i+1) + " isn't a keyword in Python. Maybe try something else.")
+
+    print(code.splitlines())
 
 Lowes()
