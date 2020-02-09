@@ -1,5 +1,5 @@
 from flask import Flask, request
-import json
+import json, explainer, library
 app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
@@ -10,8 +10,7 @@ def mainPage():
 def explain():
     code = request.args.get("code")
     if (code):
-        toReturn = {}
-        #Do the thing
+        toReturn = explainer.readCode(code)
         return json.dumps(toReturn)
     else:
         return None
