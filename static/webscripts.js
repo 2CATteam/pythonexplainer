@@ -16,6 +16,14 @@ function run() {
         })
 }
 
+function debug() {
+	var code = $('#inCodeTextArea').val();
+        $.post('/peter/Lowes', {code: code}, (data) => {
+                console.log(data)
+                showCode(JSON.parse(data))
+        })
+}
+
 function showCode(data) {
 	var code = $('#inCodeTextArea').val();
 	var lines = code.split("\n")

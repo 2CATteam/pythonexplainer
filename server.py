@@ -33,7 +33,7 @@ def runServer():
         toReturn = run.testRun(code, input)
         return json.dumps(toReturn)
 
-@app.route('/debug/', methods=['POST'])
+@app.route('/Lowes/', methods=['POST'])
 def debug():
     code = request.form.get("code")
     if (code):

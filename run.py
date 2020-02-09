@@ -17,4 +17,3 @@ def runProg(code, input):
         return proc.stdout
     except:
         return b''
-

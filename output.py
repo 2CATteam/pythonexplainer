@@ -1,2 +1,1 @@
-print("Hi!")
-print(input())
+print ( null )

@@ -25,8 +25,8 @@ def Lowes(code):
     code.replace("=", " = ")
 
     for i in code.splitlines():
-        for x in i.split():
-            if code[x] in NotInPython:
+        for x in range(len(i.split())):
+            if i[x] in NotInPython:
                 errorStr = ("\nThe word " + code[x] + " on line " + (i+1) + " isn't a keyword in Python. Maybe try something else.")
                 FinalDict[i] = errorStr
 
@@ -34,13 +34,14 @@ def Lowes(code):
     varLoc = {}
     varLine = 0
     for i in code.splitlines():
-        for j in i.split():
+        split = i.split()
+        for j in range(len(split)):
             if i[j] == "=":
                 try:
-                    Variables[i[j-1]] += 1
+                    Variables[split[j-1]] += 1
                 except KeyError:
-                    Variables[i[j-1]] = 1
-                    varLoc[i[j-1]] = i
+                    Variables[split[j-1]] = 1
+                    varLoc[split[j-1]] = i
                     varLine = i
 
     for i in Variables.keys():
