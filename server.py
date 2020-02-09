@@ -1,5 +1,5 @@
 from flask import Flask, request
-import json, explainer, Lowes, library
+import json, explainer, Lowes, library, run
 app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
@@ -8,33 +8,34 @@ def mainPage():
 
 @app.route('/explain/', methods=['POST'])
 def explain():
-    code = request.args.get("code")
+    code = request.form.get("code")
     if (code):
         toReturn = explainer.readCode(code)
         return json.dumps(toReturn)
     else:
+        print("No code")
         return None
 
 @app.route('/trace/', methods=['POST'])
 def trace():
-    code = request.args.get("code")
-    variable = request.args.get("variable")
+    code = request.form.get("code")
+    variable = request.form.get("variable")
     if (code):
         toReturn = {}
         #Do the thing
         return json.dumps(toReturn)
 
 @app.route('/run/', methods=['POST'])
-def run():
-    code = request.args.get("code")
+def runServer():
+    code = request.form.get("code")
+    input = request.form.get("input")
     if (code):
-        toReturn = {}
-        #Do the thing
+        toReturn = run.testRun(code, input)
         return json.dumps(toReturn)
 
 @app.route('/debug/', methods=['POST'])
 def debug():
-    code = request.args.get("code")
+    code = request.form.get("code")
     if (code):
         toReturn = Lowes.Lowes(code)
         #Do the thing

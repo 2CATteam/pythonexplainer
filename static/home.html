@@ -1,13 +1,13 @@
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="./styles.css">
+	<link rel="stylesheet" type="text/css" href="static/styles.css">
 	<title>PETER: Make Python Make Sense</title>
 	<meta charset="UTF-8">
 	<meta name="description" content="Tool for understanding your Python code">
 	<meta name="keywords" content="Python,code,developers,tool,debugger,debug,trace,list,free,service">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<script type="text/javascript" src="./webscripts.js"></script>
+	<script type="text/javascript" src="static/webscripts.js"></script>
 </head>
 <body>
 	<div id="main">
@@ -43,10 +43,10 @@
 			<div id="selectionDiv">
 				<p class="textLabel">Options</p>
 				<div id="Buttons">
-					<button>Explain it to me</button>
-					<button>Find Common Errors</button>
-					<button>Just run my code</button>
-					<button>Trace a variable (Select below)</button>
+					<button onclick="explain()">Explain it to me</button>
+					<button onclick="debug()">Find Common Errors</button>
+					<button onclick="run()">Just run my code</button>
+					<button onclick="trace()">Trace a variable (Select below)</button>
 					<textarea rows=1 id="variable" placeholder="Variable name to trace"></textarea>
 				</div>
 			</div>

@@ -1,0 +1,10 @@
+function explain() {
+	var code = $('#inCodeTextArea').val();
+	$.post('/peter/explain', {code: code}, (data) => {console.log(data)})
+}
+
+function showCode() {
+	var code = $('#inCodeTextArea').val();
+	var lines = code.split("\n")
+
+}

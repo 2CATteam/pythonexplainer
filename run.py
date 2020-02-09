@@ -1,30 +1,20 @@
 import subprocess
 
 def testRun(code, input):
-    f = open('output.py', 'w')
+    f = open('/var/www/peter/output.py', 'w')
     traceList = code.split('\n')
     for i in range(len(traceList)):
         f.write(traceList[i])
         f.write('\n')
     f.close()
-    res = runProg('output.py', input).decode('utf-8')
-    if (res==None):
-        print("Haha")
+    res = runProg('/var/www/peter/output.py', input).decode('utf-8')
     print(res)
-    return
+    return { "out": res }
 
 def runProg(code, input):
     try:
-        proc = subprocess.run(["python", code], stdout=subprocess.PIPE, stderr=subprocess.PIPE, input=input.encode('utf-8'), check=True)
+        proc = subprocess.run(["python3", code], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, input=input.encode('utf-8'))
         return proc.stdout
     except:
-        return None
+        return b''
 
-
-test = '''a = 1
-b = 2
-c = a + b
-print(c)
-print(input())'''
-
-testRun(test, 'hi')
