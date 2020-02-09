@@ -11,6 +11,8 @@ def Lowes(code):
     InC = [KeywordsC[i] for i in range(len(KeywordsC)) if KeywordsC[i] not in KeywordsPython]
     NotInPython = list(set(InJava) | set(InJS) | set(InC))
 
+    FinalDict = {}
+
     #print(NotInPython)
 
     #code = '''a = [x for x in range(8)]
@@ -25,24 +27,32 @@ def Lowes(code):
     for i in code.splitlines():
         for x in i.split():
             if code[x] in NotInPython:
-                str += ("\nThe word " + code[x] + " on line " + (i+1) + " isn't a keyword in Python. Maybe try something else.")
+                errorStr = ("\nThe word " + code[x] + " on line " + (i+1) + " isn't a keyword in Python. Maybe try something else.")
+                FinalDict[i] = errorStr
 
     Variables = {}
-
-    for i in code.split():
-        if code[i] == "=":
-            try:
-                Variables[code[i-1]] += 1
-            except KeyError:
-                Variables[code[i-1]] = 1
+    varLoc = {}
+    varLine = 0
+    for i in code.splitlines():
+        for j in i.split():
+            if i[j] == "=":
+                try:
+                    Variables[i[j-1]] += 1
+                except KeyError:
+                    Variables[i[j-1]] = 1
+                    varLoc[i[j-1]] = i
+                    varLine = i
 
     for i in Variables.keys():
         if Variables[i] == 1:
             for j in Variables.values():
                 if Levenshtein.distance(i,j) == 1:
-                    str += ("\n" + i + " is incredibly similar to another variable in your code and you've only set it once. Perhaps it's a typo?")
+                    finalStrError = ("\n" + i + " is incredibly similar to another variable in your code and you've only set it once. Perhaps it's a typo?")
+                    FinalDict[varLine] = finalStrError
 
-    return str
+
+
+    return FinalDict
 
 
 
