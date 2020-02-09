@@ -9,7 +9,7 @@ def Lowes():
     InC = [KeywordsC[i] for i in range(len(KeywordsC)) if KeywordsC[i] not in KeywordsPython]
     NotInPython = list(set(InJava) | set(InJS) | set(InC))
 
-    #print(NotInPython)
+    print(NotInPython)
 
 
 Lowes()
