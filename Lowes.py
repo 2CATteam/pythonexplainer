@@ -52,7 +52,7 @@ def Lowes(code):
     for i in Variables.keys():
         if Variables[i] == 1:
             for j in Variables.values():
-                if Levenshtein.distance(i,j) <= 1 and Levenshtein.distance(i,j) > 0:
+                if Levenshtein.distance(i,j) <= 3 and Levenshtein.distance(i,j) > 0:
                     finalStrError = ("\n" + i + " is incredibly similar to another variable in your code and you've only set it once. Perhaps it's a typo?")
                     FinalDict[varLine] = finalStrError
 
