@@ -23,6 +23,5 @@ for i in range(len(a)):
             if code[x] in NotInPython:
                 print("The word " + code[x] + " on line " + (i+1) + " isn't a keyword in Python. Maybe try something else.")
 
-    print(code.splitlines())
 
 Lowes()
