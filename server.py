@@ -40,5 +40,6 @@ def debug():
         #Do the thing
         return json.dumps(toReturn)
 
-app.run()
+if (__name__ == __main__):
+    app.run()
 print('Running website')
