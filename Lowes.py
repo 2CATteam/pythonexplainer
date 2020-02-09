@@ -1,4 +1,4 @@
-def Lowes():
+def Lowes(code):
     KeywordsPython = ["False", "class", "finally", "is", "return", "None", "continue", "for", "lambda", "try", "True", "def", "from", "nonlocal", "while", "and", "del", "global", "not", "with", "as", "elif", "if", "or", "yield", "assert", "else", "import", "pass", "break", "except", "in", "raise"]
     KeywordsJava = ["abstract", "continue", "for", "new", "switch", "assert", "default", "goto", "package", "synchronized", "boolean", "do", "if", "private", "this", "break", "double", "implements", "protected", "throw", "byte", "else", "import", "public", "throws", "case", "enum", "instanceof", "return", "transient", "catch", "extends", "int", "short", "try", "char", "final", "interface", "static", "void", "class", "finally", "long", "strictfp", "volatile", "const", "float", "native", "super", "while"]
     KeywordsJS = ["abstract", "arguments", "await", "boolean", "break", "byte", "case", "catch", "char", "class", "const", "continue", "debugger", "default", "delete", "do", "double", "else", "enum", "eval", "export", "extends", "false", "final", "finally", "float", "for", "function", "goto", "if", "implements", "import", "in", "instanceof", "int", "interface", "let", "long", "native", "new", "null", "package", "private", "protected", "public", "return", "short", "static", "super", "switch", "synchronized", "this", "throw", "throws", "transient", "true", "try", "typeof", "var", "void", "volatile", "while", "with", "yield"]
@@ -11,12 +11,12 @@ def Lowes():
 
     #print(NotInPython)
 
-    code = '''a = [x for x in range(8)]
-b = []
-for i in range(len(a)):
-    for j in a[~i]:
-        if (a[i] % j != 0):
-            b.append(a[i])'''
+    #code = '''a = [x for x in range(8)]
+#b = []
+#for i in range(len(a)):
+    #for j in a[~i]:
+        #if (a[i] % j != 0):
+            #b.append(a[i])'''
 
     for i in code.splitlines():
         for x in i.split():

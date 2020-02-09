@@ -36,7 +36,7 @@ def run():
 def trace():
     code = request.args.get("code")
     if (code):
-        toReturn = {}
+        toReturn = Lowes.Lowes(code)
         #Do the thing
         return json.dumps(toReturn)
 
