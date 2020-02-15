@@ -39,8 +39,8 @@ function showCode(data) {
 		} else {
 			row.data("data", "Nothing to note here!")
 		}
-		row.click(() => {
-			$("#infoTextArea").html(`<p class="coderow">${data[i] ? data[i] : "Nothing to see here!"}</p>`)
+		row.click((arg) => {
+			$("#infoTextArea").html(`<p class="coderow">${ $(arg.target).data("data") ? $(arg.target).data("data") : "Nothing to see here!"}</p>`)
 		})
 		$('#outCodeTextArea').append(row)
 	}
